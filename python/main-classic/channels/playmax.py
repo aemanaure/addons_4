@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # ------------------------------------------------------------
-# pelisalacarta - XBMC Plugin
-# Canal para playmax
-# http://blog.tvalacarta.info/plugin-xbmc/pelisalacarta/
+# MiTvSpain - XBMC Plugin
+# Canal para mejortorrent
+
 # ------------------------------------------------------------
 
 import re
@@ -495,31 +495,34 @@ def findvideos(item):
                 elif type(v["Item"]) is dict:
                     v["Item"] = [v["Item"]]
                 for it in v["Item"]:
-                    thumbnail = "%s/styles/prosilver/imageset/%s.png" % (host, it['Host'])
-                    title = "   %s - %s/%s" % (it['Host'].capitalize(), it['Quality'], it['Lang'])
-                    calidad = int(scrapertools.find_single_match(it['Quality'], '(\d+)p'))
-                    calidadaudio = it['QualityA'].replace("...", "")
-                    subtitulos = it['Subtitles'].replace("Sin subtítulos", "")
-                    if subtitulos:
-                        title += " (%s)" % subtitulos
-                    if calidadaudio:
-                        title += "  [Audio:%s]" % calidadaudio
+                    try:
+                        thumbnail = "%s/styles/prosilver/imageset/%s.png" % (host, it['Host'])
+                        title = "   %s - %s/%s" % (it['Host'].capitalize(), it['Quality'], it['Lang'])
+                        calidad = int(scrapertools.find_single_match(it['Quality'], '(\d+)p'))
+                        calidadaudio = it['QualityA'].replace("...", "")
+                        subtitulos = it['Subtitles'].replace("Sin subtítulos", "")
+                        if subtitulos:
+                            title += " (%s)" % subtitulos
+                        if calidadaudio:
+                            title += "  [Audio:%s]" % calidadaudio
 
-                    likes = 0
-                    if it["Likes"] != "0" or it["Dislikes"] != "0":
-                        likes = int(it["Likes"]) - int(it["Dislikes"])
-                        title += "  (%s ok, %s ko)" % (it["Likes"], it["Dislikes"])
-                    if type(it["Url"]) is dict:
-                        for i, enlace in enumerate(it["Url"]["Item"]):
-                            titulo = title + "  (Parte %s)" % (i + 1)
-                            itemlist.append(item.clone(title=titulo, url=enlace, action="play", calidad=calidad,
+                        likes = 0
+                        if it["Likes"] != "0" or it["Dislikes"] != "0":
+                            likes = int(it["Likes"]) - int(it["Dislikes"])
+                            title += "  (%s ok, %s ko)" % (it["Likes"], it["Dislikes"])
+                        if type(it["Url"]) is dict:
+                            for i, enlace in enumerate(it["Url"]["Item"]):
+                                titulo = title + "  (Parte %s)" % (i + 1)
+                                itemlist.append(item.clone(title=titulo, url=enlace, action="play", calidad=calidad,
+                                                           thumbnail=thumbnail, order=order, like=likes, ficha=ficha,
+                                                           cid=cid, folder=False))
+                        else:
+                            url = it["Url"]
+                            itemlist.append(item.clone(title=title, url=url, action="play", calidad=calidad,
                                                        thumbnail=thumbnail, order=order, like=likes, ficha=ficha,
                                                        cid=cid, folder=False))
-                    else:
-                        url = it["Url"]
-                        itemlist.append(item.clone(title=title, url=url, action="play", calidad=calidad,
-                                                   thumbnail=thumbnail, order=order, like=likes, ficha=ficha,
-                                                   cid=cid, folder=False))
+                    except:
+                        pass
         except:
             pass
 
@@ -775,7 +778,7 @@ def acciones_cuenta(item):
     for category, contenido in matches:
         itemlist.append(item.clone(action="", title=category, text_color=color3))
 
-        patron = '<div class="c_fichas_image".*?href="\.([^"]+)".*?src="\.([^"]+)".*?serie="([^"]*)".*?' \
+        patron = '<div class="c_fichas_image">.*?href="\.([^"]+)".*?src="\.([^"]+)".*?serie="([^"]*)".*?' \
                  '<div class="c_fichas_title">(?:<div class="c_fichas_episode">([^<]+)</div>|)([^<]+)</div>'
         entradas = scrapertools.find_multiple_matches(contenido, patron)
         for scrapedurl, scrapedthumbnail, serie, episodio, scrapedtitle in entradas:
