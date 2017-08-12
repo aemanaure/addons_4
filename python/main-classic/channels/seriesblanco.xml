@@ -8,10 +8,10 @@
 	<language>es</language>
 
 	<fanart></fanart>
-	<thumbnail>https://raw.githubusercontent.com/pelisalacarta-ce/media/master/pelisalacarta/squares/seriesblanco.png</thumbnail>
-	<bannermenu>https://raw.githubusercontent.com/pelisalacarta-ce/media/master/pelisalacarta/bannermenu/seriesblanco.png</bannermenu>
+	<thumbnail>https://raw.githubusercontent.com/devalls/media/master/pelisalacarta/squares/seriesblanco.png</thumbnail>
+	<bannermenu>https://raw.githubusercontent.com/devalls/media/master/pelisalacarta/bannermenu/seriesblanco.png</bannermenu>
 
-	<update_url>https://raw.githubusercontent.com/pelisalacarta-ce/pelisalacarta-ce/develop/python/main-classic/channels/</update_url>
+	<update_url>https://raw.githubusercontent.com/devalls/pelisalacarta-ce/develop/python/main-classic/channels/</update_url>
 	<version>19</version>
 	<changes>
 		<change>
