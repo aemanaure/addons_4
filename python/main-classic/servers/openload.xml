@@ -4,6 +4,11 @@
 	<changes>
 		<change>
 			<autor></autor>
+			<date>22/08/2017</date>
+			<description>Fix</description>
+		</change>
+		<change>
+			<autor></autor>
 			<date>12/05/2017</date>
 			<description>Corregido por cambios en el servidor</description>
 		</change>
@@ -54,7 +59,7 @@
 		<type>list</type>
 		<visible>false</visible>
 	</settings>
-	<thumbnail>https://raw.githubusercontent.com/pelisalacarta-ce/media/master/servers/server_openload.png</thumbnail>
-	<update_url>https://raw.githubusercontent.com/pelisalacarta-ce/pelisalacarta-ce/master/python/main-classic/servers/</update_url>
-	<version>12</version>
+	<thumbnail>https://raw.githubusercontent.com/devalls/media/master/servers/server_openload.png</thumbnail>
+	<update_url>https://raw.githubusercontent.com/devalls/pelisalacarta-ce/master/python/main-classic/servers/</update_url>
+	<version>13</version>
 </server>
