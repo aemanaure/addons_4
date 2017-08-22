@@ -4,6 +4,11 @@
 	<changes>
 		<change>
 			<autor></autor>
+			<date>22/08/2017</date>
+			<description>Fix</description>
+		</change>
+		<change>
+			<autor></autor>
 			<date>21/07/2017</date>
 			<description>Actualizado get_video_url</description>
 		</change>
@@ -54,6 +59,6 @@
 		<visible>false</visible>
 	</settings>
 	<thumbnail>http://media.tvalacarta.info/servers/server_flashx.png</thumbnail>
-	<update_url>https://raw.githubusercontent.com/pelisalacarta-ce/pelisalacarta-ce/master/python/main-classic/servers/</update_url>
-	<version>5</version>
+	<update_url>https://raw.githubusercontent.com/devalls/pelisalacarta-ce/master/python/main-classic/servers/</update_url>
+	<version>6</version>
 </server>
